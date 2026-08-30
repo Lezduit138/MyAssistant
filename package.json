@@ -1,0 +1,15 @@
+{
+  "name": "myassistant",
+  "version": "1.0.0",
+  "description": "My personal PC assistant",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^44.0.0"
+  }
+}

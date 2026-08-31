@@ -12,7 +12,7 @@ def main():
         messages=[
             {
                 "role": "user",
-                "content": "Reply with exactly: MyAssistant is online."
+                "content": "Reply with exactly: Nova is online."
             }
         ],
     )

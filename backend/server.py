@@ -12,7 +12,8 @@ from faster_whisper import WhisperModel
 
 
 app = FastAPI(
-    title="MyAssistant Backend",
+    title="NOVA Backend",
+    description="Local backend for NOVA — personal AI assistant for Windows.",
     version="0.2.0",
 )
 
@@ -41,7 +42,7 @@ model = WhisperModel(
 def health_check():
     return {
         "status": "ok",
-        "assistant": "MyAssistant",
+        "assistant": "Nova",
         "time": datetime.now().isoformat(),
     }
 
@@ -49,7 +50,7 @@ def health_check():
 @app.get("/")
 def root():
     return {
-        "message": "MyAssistant backend is running."
+        "message": "Nova backend is running."
     }
 
 

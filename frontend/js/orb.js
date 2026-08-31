@@ -70,15 +70,51 @@ function setState(state) {
 // CLICK INTERACTION
 // =========================
 
-orb.addEventListener("click", () => {
+orb.addEventListener("click", async () => {
+
     const isListening =
         orb.classList.contains("listening");
 
     if (isListening) {
-        setState("idle");
-    } else {
-        setState("listening");
+        return;
     }
+
+    try {
+
+        setState("listening");
+
+        console.log("Listening for voice...");
+
+        const result =
+            await window.electronAPI.listen();
+
+        setState("thinking");
+
+        console.log(
+            "Transcription:",
+            result.text
+        );
+
+        alert(
+            `You said:\n\n${result.text}`
+        );
+
+        setState("idle");
+
+    } catch (error) {
+
+        console.error(
+            "Voice input failed:",
+            error
+        );
+
+        setState("idle");
+
+        alert(
+            "Voice input failed. Check the backend terminal."
+        );
+    }
+
 });
 
 
